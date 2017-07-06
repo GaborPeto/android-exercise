@@ -1,0 +1,27 @@
+ext {
+
+    minSdkVersion = 21
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.0'
+
+    //Android
+    androidSupportVersion = '25.4.0'
+
+    //Testing
+    junitVersion = '4.12'
+    mockitoVersion = '1.10.19'
+    espressoVersion = '2.2.2'
+    runnerVersion = '0.5'
+    rulesVersion = '0.5'
+
+    libraries = [supportAnnotations           : "com.android.support:support-annotations:${androidSupportVersion}",
+    ]
+
+    testLibraries = [mockito        : "org.mockito:mockito-core:${mockitoVersion}",
+                     junit          : "junit:junit:${junitVersion}",
+                     espresso       : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+                     runner         : "com.android.support.test:runner:${runnerVersion}",
+                     rules          : "com.android.support.test:rules:${rulesVersion}"
+    ]
+
+}
