@@ -1,4 +1,4 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 
 compileJava {
     setSourceCompatibility(JavaVersion.VERSION_1_8)
@@ -7,10 +7,10 @@ compileJava {
 
 dependencies {
 
-    compile rootProject.ext.libraries.rxJava
-    compile rootProject.ext.libraries.javaxInject
+    api rootProject.ext.libraries.rxJava
+    api rootProject.ext.libraries.javaxInject
 
-    testCompile rootProject.ext.testLibraries.junit
-    testCompile rootProject.ext.testLibraries.mockito
+    testImplementation rootProject.ext.testLibraries.junit
+    testImplementation rootProject.ext.testLibraries.mockito
 
 }

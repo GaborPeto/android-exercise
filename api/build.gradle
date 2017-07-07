@@ -1,4 +1,4 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 
 sourceSets {
     test {
@@ -13,12 +13,12 @@ compileJava {
 
 dependencies {
 
-    compile project(':domain')
-    compile rootProject.ext.libraries.retrofit
-    compile rootProject.ext.libraries.retrofitGsonConverter
-    compile rootProject.ext.libraries.retrofitRxJavaAdapter
+    implementation project(':domain')
+    implementation rootProject.ext.libraries.retrofit
+    implementation rootProject.ext.libraries.retrofitGsonConverter
+    implementation rootProject.ext.libraries.retrofitRxJavaAdapter
 
-    testCompile rootProject.ext.testLibraries.junit
-    testCompile rootProject.ext.testLibraries.mockito
+    testImplementation rootProject.ext.testLibraries.junit
+    testImplementation rootProject.ext.testLibraries.mockito
 
 }

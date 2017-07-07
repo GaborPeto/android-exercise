@@ -1,4 +1,4 @@
-apply plugin: 'java'
+apply plugin: 'java-library'
 
 compileJava {
     setSourceCompatibility(JavaVersion.VERSION_1_8)
@@ -7,9 +7,9 @@ compileJava {
 
 dependencies {
 
-    compile project(':domain')
+    api project(':domain')
 
-    testCompile rootProject.ext.testLibraries.junit
-    testCompile rootProject.ext.testLibraries.mockito
+    testImplementation rootProject.ext.testLibraries.junit
+    testImplementation rootProject.ext.testLibraries.mockito
 
 }

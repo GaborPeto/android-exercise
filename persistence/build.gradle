@@ -30,13 +30,13 @@ android {
 
 dependencies {
 
-    compile project(':domain')
+    implementation project(':domain')
 
-    androidTestCompile rootProject.ext.testLibraries.runner
-    androidTestCompile rootProject.ext.testLibraries.rules
-    androidTestCompile rootProject.ext.testLibraries.espresso
+    androidTestImplementation rootProject.ext.testLibraries.runner
+    androidTestImplementation rootProject.ext.testLibraries.rules
+    androidTestImplementation rootProject.ext.testLibraries.espresso
 
-    testCompile rootProject.ext.testLibraries.junit
-    testCompile rootProject.ext.testLibraries.mockito
+    testImplementation rootProject.ext.testLibraries.junit
+    testImplementation rootProject.ext.testLibraries.mockito
 
 }
