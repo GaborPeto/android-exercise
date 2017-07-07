@@ -1,0 +1,38 @@
+package com.gaborpeto.androidexercise.api.smoketests;
+
+import com.gaborpeto.androidexercise.api.gateway.RemoteCommentGateway;
+import com.gaborpeto.androidexercise.api.gateway.RemotePostGateway;
+import com.gaborpeto.androidexercise.api.mapper.RemoteCommentMapper;
+import com.gaborpeto.androidexercise.api.mapper.RemotePostMapper;
+import com.gaborpeto.androidexercise.domain.model.Comment;
+import com.gaborpeto.androidexercise.domain.model.Post;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.List;
+
+import io.reactivex.observers.TestObserver;
+
+public class CommentSmokeTests extends BaseSmokeTest {
+
+    private static final int POST_ID = 1;
+
+    private RemoteCommentGateway gateway;
+
+    @Before
+    public void setup() {
+        gateway = new RemoteCommentGateway(getApiClient(), new RemoteCommentMapper());
+    }
+
+    @Test
+    public void testGetCommentsForPost() {
+        TestObserver<List<Comment>> observer = gateway.getCommentsForPost(POST_ID).test();
+
+        observer.assertValue(comments -> !comments.isEmpty());
+        observer.assertNoErrors();
+        observer.assertComplete();
+    }
+
+
+}

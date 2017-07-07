@@ -1,11 +1,22 @@
 apply plugin: 'java'
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+sourceSets {
+    test {
+        java.srcDir 'test'
+    }
+}
+
+compileJava {
+    setSourceCompatibility(JavaVersion.VERSION_1_8)
+    setTargetCompatibility(JavaVersion.VERSION_1_8)
+}
 
 dependencies {
 
     compile project(':domain')
+    compile rootProject.ext.libraries.retrofit
+    compile rootProject.ext.libraries.retrofitGsonConverter
+    compile rootProject.ext.libraries.retrofitRxJavaAdapter
 
     testCompile rootProject.ext.testLibraries.junit
     testCompile rootProject.ext.testLibraries.mockito
