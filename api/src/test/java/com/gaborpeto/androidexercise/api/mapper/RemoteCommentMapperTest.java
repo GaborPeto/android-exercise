@@ -13,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class RemoteCommentMapperTest {
 
     private static final int COMMENT_ID = 1;
+    private static final int POST_ID = 2;
     private static final String NAME = "name";
     private static final String EMAIL = "email";
     private static final String BODY = "body";
@@ -36,6 +37,7 @@ public class RemoteCommentMapperTest {
     private static RemoteComment getRemoteComment() {
         RemoteComment remoteComment = new RemoteComment();
         remoteComment.id = COMMENT_ID;
+        remoteComment.postId = POST_ID;
         remoteComment.name = NAME;
         remoteComment.email = EMAIL;
         remoteComment.body = BODY;
@@ -43,6 +45,6 @@ public class RemoteCommentMapperTest {
     }
 
     private static Comment getExpectedComment() {
-        return new Comment(COMMENT_ID, NAME, EMAIL, BODY);
+        return new Comment(COMMENT_ID, POST_ID, NAME, EMAIL, BODY);
     }
 }

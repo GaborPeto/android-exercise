@@ -10,6 +10,7 @@ public class RemoteCommentMapper extends Mapper<RemoteComment, Comment> {
     protected Comment map(RemoteComment comment) {
         return new Comment(
                 comment.id,
+                comment.postId,
                 comment.name,
                 comment.email,
                 comment.body);
