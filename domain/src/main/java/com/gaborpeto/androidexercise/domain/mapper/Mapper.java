@@ -1,4 +1,5 @@
 package com.gaborpeto.androidexercise.domain.mapper;
+
 import java.util.List;
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -16,6 +17,6 @@ public abstract class Mapper<T, U> {
                 .toList();
     }
 
-    protected abstract U map(T item);
+    public abstract U map(T item);
 
 }

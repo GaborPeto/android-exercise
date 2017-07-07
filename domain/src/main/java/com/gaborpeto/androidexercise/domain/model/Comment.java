@@ -18,6 +18,26 @@ public class Comment {
         this.body = body;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
     @Override
     public String toString() {
         return "Comment{" +

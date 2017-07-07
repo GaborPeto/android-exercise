@@ -6,7 +6,7 @@ import com.gaborpeto.androidexercise.domain.model.Post;
 
 public class RemotePostMapper extends Mapper<RemotePost, Post> {
 
-    @Override protected Post map(RemotePost remotePost) {
+    @Override public Post map(RemotePost remotePost) {
         return new Post(
                 remotePost.id,
                 remotePost.userId,

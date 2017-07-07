@@ -7,7 +7,7 @@ import com.gaborpeto.androidexercise.domain.model.Comment;
 public class RemoteCommentMapper extends Mapper<RemoteComment, Comment> {
 
     @Override
-    protected Comment map(RemoteComment comment) {
+    public Comment map(RemoteComment comment) {
         return new Comment(
                 comment.id,
                 comment.postId,
