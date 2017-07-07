@@ -24,7 +24,7 @@ public class RemoteCommentGateway implements IRemoteCommentGateway {
     }
 
     @Override
-    public Single<List<Comment>> getCommentsForPost(int postId) {
+    public Single<List<Comment>> getComments(int postId) {
         return client.getCommentsForPost(postId).flatMap(mapper::flatMapItems);
     }
 

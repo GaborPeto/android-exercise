@@ -8,7 +8,6 @@ import io.reactivex.Single;
 
 public interface IRemotePostGateway {
 
-
     Single<List<Post>> getPosts();
 
     Single<Post> getPost(int postId);

@@ -3,7 +3,6 @@ package com.gaborpeto.androidexercise.api.gateway;
 import com.gaborpeto.androidexercise.api.client.ApiClient;
 import com.gaborpeto.androidexercise.api.mapper.RemoteCommentMapper;
 import com.gaborpeto.androidexercise.api.model.RemoteComment;
-import com.gaborpeto.androidexercise.domain.mapper.Mapper;
 import com.gaborpeto.androidexercise.domain.model.Comment;
 
 import org.junit.Before;
@@ -40,14 +39,14 @@ public class RemoteCommentGatewayTest {
     }
 
     @Test
-    public void getCommentsById_shouldGetCommentsByIdFromClient() {
-        gateway.getCommentsForPost(POST_ID);
+    public void getComments_shouldGetCommentsByIdFromClient() {
+        gateway.getComments(POST_ID);
 
         verify(mockClient).getCommentsForPost(POST_ID);
     }
 
-    @Test public void getCommentsById_shouldMapRemoteCommentsToComments() {
-        TestObserver<List<Comment>> observer = gateway.getCommentsForPost(POST_ID).test();
+    @Test public void getComments_shouldMapRemoteCommentsToComments() {
+        TestObserver<List<Comment>> observer = gateway.getComments(POST_ID).test();
 
         observer.assertValue(comments -> comments.get(0).equals(COMMENT));
         observer.assertNoErrors();
