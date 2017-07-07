@@ -1,4 +1,4 @@
-package com.gaborpeto.androidexercise.domain.gateway;
+package com.gaborpeto.androidexercise.domain.gateway.remote;
 
 import com.gaborpeto.androidexercise.domain.model.Post;
 

@@ -2,7 +2,7 @@ package com.gaborpeto.androidexercise.api.gateway;
 
 import com.gaborpeto.androidexercise.api.client.ApiClient;
 import com.gaborpeto.androidexercise.api.model.RemoteComment;
-import com.gaborpeto.androidexercise.domain.gateway.IRemoteCommentGateway;
+import com.gaborpeto.androidexercise.domain.gateway.remote.IRemoteCommentGateway;
 import com.gaborpeto.androidexercise.domain.mapper.Mapper;
 import com.gaborpeto.androidexercise.domain.model.Comment;
 

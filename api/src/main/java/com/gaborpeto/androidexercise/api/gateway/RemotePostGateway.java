@@ -2,7 +2,7 @@ package com.gaborpeto.androidexercise.api.gateway;
 
 import com.gaborpeto.androidexercise.api.client.ApiClient;
 import com.gaborpeto.androidexercise.api.model.RemotePost;
-import com.gaborpeto.androidexercise.domain.gateway.IRemotePostGateway;
+import com.gaborpeto.androidexercise.domain.gateway.remote.IRemotePostGateway;
 import com.gaborpeto.androidexercise.domain.mapper.Mapper;
 import com.gaborpeto.androidexercise.domain.model.Post;
 
