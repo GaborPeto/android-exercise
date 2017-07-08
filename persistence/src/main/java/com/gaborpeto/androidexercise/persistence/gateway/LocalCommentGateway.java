@@ -7,7 +7,9 @@ import com.gaborpeto.androidexercise.persistence.model.PersistableComment;
 
 import java.util.List;
 
-import io.reactivex.Single;
+import javax.inject.Inject;
+
+import io.reactivex.Maybe;
 import io.realm.Realm;
 
 public class LocalCommentGateway implements ILocalCommentGateway {
@@ -17,18 +19,20 @@ public class LocalCommentGateway implements ILocalCommentGateway {
 
     private PersistableMapper<Comment, PersistableComment> mapper;
 
-    public LocalCommentGateway(PersistableMapper<Comment, PersistableComment> mapper) {
+    @Inject public LocalCommentGateway(PersistableMapper<Comment, PersistableComment> mapper) {
         this.mapper = mapper;
     }
 
     @Override
-    public Single<List<Comment>> getComments(int postId) {
+    public Maybe<List<Comment>> getComments(int postId) {
         try (Realm realm = getRealm()) {
             List<PersistableComment> persistableComments = realm
                     .where(PersistableComment.class)
                     .equalTo(FIELD_POST_ID, postId)
                     .findAllSorted(FIELD_COMMENT_ID);
-            return mapper.inverseFlatMapItems(realm.copyFromRealm(persistableComments));
+            return persistableComments.isEmpty()
+                    ? Maybe.empty()
+                    : mapper.inverseFlatMapItems(realm.copyFromRealm(persistableComments)).toMaybe();
         }
     }
 

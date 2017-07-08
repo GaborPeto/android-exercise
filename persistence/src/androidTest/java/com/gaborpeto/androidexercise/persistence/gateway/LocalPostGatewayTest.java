@@ -79,6 +79,24 @@ public class LocalPostGatewayTest extends BaseLocalGatewayTest {
         observer.assertComplete();
     }
 
+    @Test
+    public void givenEmptyPosts_whenGetPosts_thenReturnEmptyObservable() {
+        TestObserver<List<Post>> observer = gateway.getPosts().test();
+
+        observer.assertNoValues();
+        observer.assertNoErrors();
+        observer.assertComplete();
+    }
+
+    @Test
+    public void givenPostIsNotFound_whenGetPost_thenReturnEmptyObservable() {
+        TestObserver<Post> observer = gateway.getPost(1).test();
+
+        observer.assertNoValues();
+        observer.assertNoErrors();
+        observer.assertComplete();
+    }
+
     private static Post buildPost(int postId) {
         return new Post(postId, USER_ID, TITLE, BODY);
     }

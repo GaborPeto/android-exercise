@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.Single;
+import io.reactivex.Maybe;
 import io.realm.Realm;
 
 public class LocalPostGateway implements ILocalPostGateway {
@@ -24,23 +24,27 @@ public class LocalPostGateway implements ILocalPostGateway {
     }
 
     @Override
-    public Single<List<Post>> getPosts() {
+    public Maybe<List<Post>> getPosts() {
         try (Realm realm = getRealm()) {
             List<PersistablePost> persistablePosts = realm
                     .where(PersistablePost.class)
                     .findAllSorted(FIELD_POST_ID);
-            return mapper.inverseFlatMapItems(realm.copyFromRealm(persistablePosts));
+            return persistablePosts.isEmpty()
+                    ? Maybe.empty()
+                    : mapper.inverseFlatMapItems(realm.copyFromRealm(persistablePosts)).toMaybe();
         }
     }
 
     @Override
-    public Single<Post> getPost(int postId) {
+    public Maybe<Post> getPost(int postId) {
         try (Realm realm = getRealm()){
             PersistablePost post = realm
                     .where(PersistablePost.class)
                     .equalTo(FIELD_POST_ID, postId)
                     .findFirst();
-            return mapper.inverseFlatMapItem(post);
+            return post == null
+                    ? Maybe.empty()
+                    : mapper.inverseFlatMapItem(post).toMaybe();
         }
     }
 

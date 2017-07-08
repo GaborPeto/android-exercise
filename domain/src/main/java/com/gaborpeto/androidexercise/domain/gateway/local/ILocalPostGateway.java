@@ -4,13 +4,13 @@ import com.gaborpeto.androidexercise.domain.model.Post;
 
 import java.util.List;
 
-import io.reactivex.Single;
+import io.reactivex.Maybe;
 
 public interface ILocalPostGateway {
 
-    Single<List<Post>> getPosts();
+    Maybe<List<Post>> getPosts();
 
-    Single<Post> getPost(int postId);
+    Maybe<Post> getPost(int postId);
 
     void updatePosts(List<Post> posts);
 
