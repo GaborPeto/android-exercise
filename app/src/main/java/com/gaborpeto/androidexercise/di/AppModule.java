@@ -1,4 +1,4 @@
-package com.gaborpeto.androidexercise.di.module.app;
+package com.gaborpeto.androidexercise.di;
 
 import com.gaborpeto.androidexercise.presentation.util.IScheduler;
 import com.gaborpeto.androidexercise.util.AppScheduler;

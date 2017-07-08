@@ -1,4 +1,4 @@
-package com.gaborpeto.androidexercise.di.module.domain;
+package com.gaborpeto.androidexercise.di;
 
 import com.gaborpeto.androidexercise.domain.interactor.comment.GetCommentsInteractor;
 import com.gaborpeto.androidexercise.domain.interactor.comment.IGetCommentsInteractor;

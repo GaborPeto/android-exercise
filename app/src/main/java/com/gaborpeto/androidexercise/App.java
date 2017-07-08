@@ -2,8 +2,8 @@ package com.gaborpeto.androidexercise;
 
 import android.app.Activity;
 import android.app.Application;
-import com.gaborpeto.androidexercise.di.component.app.DaggerAppComponent;
-import com.gaborpeto.androidexercise.di.module.persistence.PersistenceModule;
+import com.gaborpeto.androidexercise.di.app.DaggerAppComponent;
+import com.gaborpeto.androidexercise.di.PersistenceModule;
 
 import javax.inject.Inject;
 import dagger.android.AndroidInjector;

@@ -1,4 +1,4 @@
-package com.gaborpeto.androidexercise.di.module.api;
+package com.gaborpeto.androidexercise.di;
 
 import com.gaborpeto.androidexercise.api.client.ApiClient;
 import com.gaborpeto.androidexercise.api.gateway.RemoteCommentGateway;

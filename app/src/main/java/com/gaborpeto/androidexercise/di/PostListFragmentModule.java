@@ -1,8 +1,7 @@
-package com.gaborpeto.androidexercise.di.module.app;
+package com.gaborpeto.androidexercise.di;
 
 import android.app.Fragment;
 
-import com.gaborpeto.androidexercise.di.component.app.PostListFragmentComponent;
 import com.gaborpeto.androidexercise.postlist.PostListFragment;
 
 import dagger.Binds;

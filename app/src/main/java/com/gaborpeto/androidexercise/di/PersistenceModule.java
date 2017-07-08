@@ -1,4 +1,4 @@
-package com.gaborpeto.androidexercise.di.module.persistence;
+package com.gaborpeto.androidexercise.di;
 
 import android.content.Context;
 
