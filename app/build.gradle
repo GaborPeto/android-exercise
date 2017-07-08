@@ -32,6 +32,7 @@ dependencies {
   implementation project(':persistence')
   implementation project(':presentation')
   implementation project(':api')
+  implementation project(':domain')
 
   androidTestImplementation rootProject.ext.testLibraries.runner
   androidTestImplementation rootProject.ext.testLibraries.rules

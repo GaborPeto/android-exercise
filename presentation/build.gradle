@@ -7,7 +7,7 @@ compileJava {
 
 dependencies {
 
-    api project(':domain')
+    implementation project(':domain')
 
     testImplementation rootProject.ext.testLibraries.junit
     testImplementation rootProject.ext.testLibraries.mockito
