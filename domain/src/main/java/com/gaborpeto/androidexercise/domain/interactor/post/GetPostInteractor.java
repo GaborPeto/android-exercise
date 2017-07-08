@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 
-class GetPostInteractor implements IGetPostInteractor {
+public class GetPostInteractor implements IGetPostInteractor {
 
     private ILocalPostGateway localGateway;
     private IRemotePostGateway remoteGateway;

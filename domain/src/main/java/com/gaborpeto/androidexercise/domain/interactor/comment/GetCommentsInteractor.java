@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 
-class GetCommentsInteractor implements IGetCommentsInteractor {
+public class GetCommentsInteractor implements IGetCommentsInteractor {
 
     private ILocalCommentGateway localGateway;
     private IRemoteCommentGateway remoteGateway;

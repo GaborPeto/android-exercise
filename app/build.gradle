@@ -34,6 +34,16 @@ dependencies {
   implementation project(':api')
   implementation project(':domain')
 
+
+  implementation rootProject.ext.libraries.rxAndroid
+  implementation rootProject.ext.libraries.dagger
+  implementation rootProject.ext.libraries.daggerAndroid
+
+  annotationProcessor rootProject.ext.libraries.daggerCompiler
+  annotationProcessor rootProject.ext.libraries.daggerAnnotationProcessor
+
+  provided rootProject.ext.libraries.jsr
+
   androidTestImplementation rootProject.ext.testLibraries.runner
   androidTestImplementation rootProject.ext.testLibraries.rules
   androidTestImplementation rootProject.ext.testLibraries.espresso

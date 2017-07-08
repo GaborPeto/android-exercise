@@ -12,6 +12,8 @@ ext {
     rxJavavaVersion = '2.1.1'
     retrofitVersion = '2.3.0'
     javaxInjectVersion = '1'
+    daggerVersion = '2.11'
+    jsrVersion = '1.0'
 
     //Testing
     junitVersion = '4.12'
@@ -27,6 +29,12 @@ ext {
                  rxJava                       : "io.reactivex.rxjava2:rxjava:${rxJavavaVersion}",
                  rxAndroid                    : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
                  javaxInject                  : "javax.inject:javax.inject:${javaxInjectVersion}",
+                 dagger                       : "com.google.dagger:dagger:${daggerVersion}",
+                 daggerCompiler               : "com.google.dagger:dagger-compiler:${daggerVersion}",
+                 jsr                          : "javax.annotation:jsr250-api:${jsrVersion}",
+                 daggerAndroid                : "com.google.dagger:dagger-android:${daggerVersion}",
+                 daggerAnnotationProcessor    : "com.google.dagger:dagger-android-processor:${daggerVersion}"
+
     ]
 
     testLibraries = [mockito        : "org.mockito:mockito-core:${mockitoVersion}",
