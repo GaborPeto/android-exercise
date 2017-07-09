@@ -7,6 +7,7 @@ ext {
     //Android
     androidSupportVersion = '25.4.0'
     rxAndroidVersion = '2.0.1'
+    butterKnifeVersion = '8.7.0'
 
     //Java
     rxJavavaVersion = '2.1.1'
@@ -33,7 +34,10 @@ ext {
                  daggerCompiler               : "com.google.dagger:dagger-compiler:${daggerVersion}",
                  jsr                          : "javax.annotation:jsr250-api:${jsrVersion}",
                  daggerAndroid                : "com.google.dagger:dagger-android:${daggerVersion}",
-                 daggerAnnotationProcessor    : "com.google.dagger:dagger-android-processor:${daggerVersion}"
+                 daggerAnnotationProcessor    : "com.google.dagger:dagger-android-processor:${daggerVersion}",
+                 butterKnife                  : "com.jakewharton:butterknife:${butterKnifeVersion}",
+                 butterKnifeCompiler          : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
+                 recyclerView                 : "com.android.support:recyclerview-v7:${androidSupportVersion}"
 
     ]
 
