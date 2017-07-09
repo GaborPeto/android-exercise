@@ -10,6 +10,8 @@ import com.gaborpeto.androidexercise.persistence.gateway.LocalPostGateway;
 import com.gaborpeto.androidexercise.persistence.mapper.PersistableCommentMapper;
 import com.gaborpeto.androidexercise.persistence.mapper.PersistablePostMapper;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -20,12 +22,12 @@ public class PersistenceModule {
         new PersistenceConfig().init(context);
     }
 
-    @Provides
+    @Provides @Singleton
     ILocalPostGateway provideLocalPostGateway() {
         return new LocalPostGateway(new PersistablePostMapper());
     }
 
-    @Provides
+    @Provides @Singleton
     ILocalCommentGateway provideLocalCommentGateway() {
         return new LocalCommentGateway(new PersistableCommentMapper());
     }

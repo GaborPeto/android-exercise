@@ -9,23 +9,25 @@ import com.gaborpeto.androidexercise.api.mapper.RemotePostMapper;
 import com.gaborpeto.androidexercise.domain.gateway.remote.IRemoteCommentGateway;
 import com.gaborpeto.androidexercise.domain.gateway.remote.IRemotePostGateway;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
 @Module
 public class ApiModule {
 
-    @Provides
+    @Provides @Singleton
     ApiClient provideApiClient() {
         return new ApiClientFactory().create();
     }
 
-    @Provides
+    @Provides @Singleton
     IRemotePostGateway providePostGateway(ApiClient client) {
         return new RemotePostGateway(client, new RemotePostMapper());
     }
 
-    @Provides
+    @Provides @Singleton
     IRemoteCommentGateway provideCommentGateway(ApiClient client) {
         return new RemoteCommentGateway(client, new RemoteCommentMapper());
     }

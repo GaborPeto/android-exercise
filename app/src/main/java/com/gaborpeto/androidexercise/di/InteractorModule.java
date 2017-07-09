@@ -7,23 +7,25 @@ import com.gaborpeto.androidexercise.domain.interactor.post.GetPostsInteractor;
 import com.gaborpeto.androidexercise.domain.interactor.post.IGetPostInteractor;
 import com.gaborpeto.androidexercise.domain.interactor.post.IGetPostsInteractor;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
 @Module
 public class InteractorModule {
 
-    @Provides
+    @Provides @Singleton
     IGetPostsInteractor provideGetPostsInteractor(GetPostsInteractor interactor) {
         return interactor;
     }
 
-    @Provides
+    @Provides @Singleton
     IGetPostInteractor provideGetPostInteractor(GetPostInteractor interactor) {
         return interactor;
     }
 
-    @Provides
+    @Provides @Singleton
     IGetCommentsInteractor provideGetCommentsInteractor(GetCommentsInteractor interactor) {
         return interactor;
     }
