@@ -38,34 +38,37 @@ public class GetPostsInteractorTest {
         interactor = new GetPostsInteractor(mockLocalGateway, mockRemoteGateway);
     }
 
-    @Test public void givenEmptyLocalGatewayAndRemotePosts_whenGetPosts_thenReturnRemotePosts() {
+    @Test public void givenEmptyLocalGatewayAndRemotePosts_whenGetPosts_thenReturnRemotePosts() throws InterruptedException {
         arrangeEmptyLocal();
         arrangeRemoteSuccess();
 
         TestSubscriber<List<Post>> observer = interactor.getPosts().test();
 
+        Thread.sleep(200);
         observer.assertValue(REMOTE_POSTS);
         observer.assertNoErrors();
         observer.assertComplete();
     }
 
-    @Test public void givenLocalAndRemotePosts_whenGetPosts_thenReturnLocalThenRemotePosts() {
+    @Test public void givenLocalAndRemotePosts_whenGetPosts_thenReturnLocalThenRemotePosts() throws InterruptedException {
         arrangeLocalSuccess();
         arrangeRemoteSuccess();
 
         TestSubscriber<List<Post>> observer = interactor.getPosts().test();
 
+        Thread.sleep(200);
         observer.assertValues(LOCAL_POSTS, REMOTE_POSTS);
         observer.assertNoErrors();
         observer.assertComplete();
     }
 
-    @Test public void givenLocalPostsAndRemoteError_whenGetPosts_thenReturnLocalPostsThenError() {
+    @Test public void givenLocalPostsAndRemoteError_whenGetPosts_thenReturnLocalPostsThenError() throws InterruptedException {
         arrangeLocalSuccess();
         arrangeRemoteError();
 
         TestSubscriber<List<Post>> observer = interactor.getPosts().test();
 
+        Thread.sleep(200);
         observer.assertValue(LOCAL_POSTS);
         observer.assertError(REMOTE_ERROR);
     }

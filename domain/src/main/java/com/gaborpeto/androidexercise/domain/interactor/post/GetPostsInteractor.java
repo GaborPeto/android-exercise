@@ -11,6 +11,8 @@ import javax.inject.Inject;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 
+import static java.util.concurrent.TimeUnit.*;
+
 public class GetPostsInteractor implements IGetPostsInteractor {
 
     private ILocalPostGateway localGateway;
@@ -31,6 +33,7 @@ public class GetPostsInteractor implements IGetPostsInteractor {
     private Maybe<List<Post>> remotePosts() {
         return remoteGateway
                 .getPosts()
+                .delaySubscription(100, MILLISECONDS)
                 .doOnSuccess(posts -> localGateway.updatePosts(posts))
                 .toMaybe();
     }

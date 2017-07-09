@@ -11,6 +11,8 @@ import javax.inject.Inject;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 
+import static java.util.concurrent.TimeUnit.*;
+
 public class GetCommentsInteractor implements IGetCommentsInteractor {
 
     private ILocalCommentGateway localGateway;
@@ -31,6 +33,7 @@ public class GetCommentsInteractor implements IGetCommentsInteractor {
     private Maybe<List<Comment>> remoteComments(int postId) {
         return remoteGateway
                 .getComments(postId)
+                .delaySubscription(100, MILLISECONDS)
                 .doOnSuccess(comments -> localGateway.updateComments(comments))
                 .toMaybe();
     }

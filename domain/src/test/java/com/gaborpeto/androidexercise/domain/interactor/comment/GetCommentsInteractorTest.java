@@ -40,34 +40,37 @@ public class GetCommentsInteractorTest {
     }
 
     @Test
-    public void givenEmptyLocalGatewayAndRemoteComments_whenGetComments_thenReturnRemoteComments() {
+    public void givenEmptyLocalGatewayAndRemoteComments_whenGetComments_thenReturnRemoteComments() throws InterruptedException {
         arrangeEmptyLocal();
         arrangeRemoteSuccess();
 
         TestSubscriber<List<Comment>> observer = interactor.getComments(POST_ID).test();
 
+        Thread.sleep(200);
         observer.assertValue(REMOTE_COMMENTS);
         observer.assertNoErrors();
         observer.assertComplete();
     }
 
-    @Test public void givenLocalAndRemoteComments_whenGetComments_thenReturnLocalThenRemoteComments() {
+    @Test public void givenLocalAndRemoteComments_whenGetComments_thenReturnLocalThenRemoteComments() throws InterruptedException {
         arrangeLocalSuccess();
         arrangeRemoteSuccess();
 
         TestSubscriber<List<Comment>> observer = interactor.getComments(POST_ID).test();
 
+        Thread.sleep(200);
         observer.assertValues(LOCAL_COMMENTS, REMOTE_COMMENTS);
         observer.assertNoErrors();
         observer.assertComplete();
     }
 
-    @Test public void givenLocalCommentsAndRemoteError_whenGetPosts_thenReturnLocalCommentsThenError() {
+    @Test public void givenLocalCommentsAndRemoteError_whenGetPosts_thenReturnLocalCommentsThenError() throws InterruptedException {
         arrangeLocalSuccess();
         arrangeRemoteError();
 
         TestSubscriber<List<Comment>> observer = interactor.getComments(POST_ID).test();
 
+        Thread.sleep(200);
         observer.assertValue(LOCAL_COMMENTS);
         observer.assertError(REMOTE_ERROR);
     }

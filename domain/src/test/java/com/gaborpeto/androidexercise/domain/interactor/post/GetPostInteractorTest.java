@@ -38,36 +38,39 @@ public class GetPostInteractorTest {
     }
 
     @Test
-    public void givenEmptyLocalGatewayAndRemotePost_whenGetPost_thenReturnRemotePostAndUpdateLocalGateway() {
+    public void givenEmptyLocalGatewayAndRemotePost_whenGetPost_thenReturnRemotePostAndUpdateLocalGateway() throws InterruptedException {
         arrangeEmptyLocal();
         arrangeRemoteSuccess();
 
         TestSubscriber<Post> observer = interactor.getPost(POST_ID).test();
 
+        Thread.sleep(200);
         observer.assertValue(REMOTE_POST);
         observer.assertNoErrors();
         observer.assertComplete();
         verify(mockLocalGateway).updatePost(REMOTE_POST);
     }
 
-    @Test public void givenLocalAndRemotePost_whenGetPost_thenReturnLocalThenRemotePostAndUpdateLocalGateway() {
+    @Test public void givenLocalAndRemotePost_whenGetPost_thenReturnLocalThenRemotePostAndUpdateLocalGateway() throws InterruptedException {
         arrangeLocalSuccess();
         arrangeRemoteSuccess();
 
         TestSubscriber<Post> observer = interactor.getPost(POST_ID).test();
 
+        Thread.sleep(200);
         observer.assertValues(LOCAL_POST, REMOTE_POST);
         observer.assertNoErrors();
         observer.assertComplete();
         verify(mockLocalGateway).updatePost(REMOTE_POST);
     }
 
-    @Test public void givenLocalPostAndRemoteError_whenGetPost_thenReturnLocalPostThenError() {
+    @Test public void givenLocalPostAndRemoteError_whenGetPost_thenReturnLocalPostThenError() throws InterruptedException {
         arrangeLocalSuccess();
         arrangeRemoteError();
 
         TestSubscriber<Post> observer = interactor.getPost(POST_ID).test();
 
+        Thread.sleep(200);
         observer.assertValue(LOCAL_POST);
         observer.assertError(REMOTE_ERROR);
     }

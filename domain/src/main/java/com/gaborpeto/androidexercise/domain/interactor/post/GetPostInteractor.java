@@ -9,6 +9,8 @@ import javax.inject.Inject;
 import io.reactivex.Flowable;
 import io.reactivex.Maybe;
 
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+
 public class GetPostInteractor implements IGetPostInteractor {
 
     private ILocalPostGateway localGateway;
@@ -34,6 +36,7 @@ public class GetPostInteractor implements IGetPostInteractor {
     private Maybe<Post> remotePost(int postId) {
         return remoteGateway
                 .getPost(postId)
+                .delaySubscription(100, MILLISECONDS)
                 .doAfterSuccess(post -> localGateway.updatePost(post))
                 .toMaybe();
     }
