@@ -14,14 +14,16 @@
       android:theme="@style/AppTheme"
       android:name=".App"
       >
-    <activity android:name=".postlist.PostListActivity">
+    <activity android:name=".postlist.PostListActivity"
+        android:label="@string/posts">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".postdetails.PostDetailsActivity" />
+    <activity android:name=".postdetails.PostDetailsActivity"
+        android:label="@string/comments"/>
   </application>
 
 </manifest>
