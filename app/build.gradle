@@ -49,7 +49,10 @@ dependencies {
   androidTestImplementation rootProject.ext.testLibraries.runner
   androidTestImplementation rootProject.ext.testLibraries.rules
   androidTestImplementation rootProject.ext.testLibraries.espresso
+  androidTestImplementation rootProject.ext.testLibraries.espressoContrib
+  androidTestImplementation rootProject.ext.testLibraries.espressoIntents
 
+  androidTestAnnotationProcessor rootProject.ext.libraries.daggerCompiler
   androidTestAnnotationProcessor rootProject.ext.libraries.daggerAnnotationProcessor
 
   androidTestCompileOnly rootProject.ext.libraries.jsr
@@ -61,4 +64,11 @@ dependencies {
 
 configurations.all {
   resolutionStrategy.force rootProject.ext.libraries.supportAnnotations
+  resolutionStrategy.force rootProject.ext.libraries.appCompat
+}
+configurations {
+  androidTestCompile.exclude group: 'com.android.support', module: 'appcompat'
+  androidTestCompile.exclude group: 'com.android.support', module: 'design'
+  androidTestCompile.exclude group: 'com.android.support', module: 'support-v4'
+
 }

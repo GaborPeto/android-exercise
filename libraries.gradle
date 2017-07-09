@@ -37,13 +37,16 @@ ext {
                  daggerAnnotationProcessor    : "com.google.dagger:dagger-android-processor:${daggerVersion}",
                  butterKnife                  : "com.jakewharton:butterknife:${butterKnifeVersion}",
                  butterKnifeCompiler          : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
-                 recyclerView                 : "com.android.support:recyclerview-v7:${androidSupportVersion}"
+                 recyclerView                 : "com.android.support:recyclerview-v7:${androidSupportVersion}",
+                 appCompat                    : "com.android.support:support-compat:${androidSupportVersion}"
 
     ]
 
     testLibraries = [mockito        : "org.mockito:mockito-core:${mockitoVersion}",
                      junit          : "junit:junit:${junitVersion}",
                      espresso       : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+                     espressoContrib: "com.android.support.test.espresso:espresso-contrib:${espressoVersion}",
+                     espressoIntents: "com.android.support.test.espresso:espresso-intents:${espressoVersion}",
                      runner         : "com.android.support.test:runner:${runnerVersion}",
                      rules          : "com.android.support.test:rules:${rulesVersion}"
     ]

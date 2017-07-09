@@ -27,7 +27,7 @@ public class PostDetailsActivityTest {
             new ActivityTestRule<>(PostDetailsActivity.class);
 
     @Test
-    public void testActivity() throws InterruptedException {
+    public void activityShouldShowPostDetails_andCommentList() throws InterruptedException {
 
         onView(withId(R.id.post_title)).check(matches(withText(POST_TITLE)));
         onView(withId(R.id.post_body)).check(matches(withText(POST_BODY)));
