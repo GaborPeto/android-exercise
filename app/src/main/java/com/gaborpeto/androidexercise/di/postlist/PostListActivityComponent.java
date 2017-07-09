@@ -1,4 +1,4 @@
-package com.gaborpeto.androidexercise.di;
+package com.gaborpeto.androidexercise.di.postlist;
 
 import com.gaborpeto.androidexercise.postlist.PostListActivity;
 
@@ -9,6 +9,6 @@ import dagger.android.AndroidInjector;
 public interface PostListActivityComponent extends AndroidInjector<PostListActivity> {
 
         @Subcomponent.Builder
-        public abstract class Builder extends AndroidInjector.Builder<PostListActivity> {}
+        abstract class Builder extends AndroidInjector.Builder<PostListActivity> {}
 
 }

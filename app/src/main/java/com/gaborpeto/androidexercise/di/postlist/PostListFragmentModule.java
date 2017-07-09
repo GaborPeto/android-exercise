@@ -1,4 +1,4 @@
-package com.gaborpeto.androidexercise.di;
+package com.gaborpeto.androidexercise.di.postlist;
 
 import android.app.Fragment;
 

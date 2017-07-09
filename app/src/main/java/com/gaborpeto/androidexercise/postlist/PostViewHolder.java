@@ -8,10 +8,13 @@ import android.widget.TextView;
 
 import com.gaborpeto.androidexercise.R;
 import com.gaborpeto.androidexercise.domain.model.Post;
+import com.gaborpeto.androidexercise.postdetails.PostDetailsActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.gaborpeto.androidexercise.util.Constants.*;
 
 public class PostViewHolder extends RecyclerView.ViewHolder {
 
@@ -32,9 +35,9 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     }
 
     @OnClick() public void onClick() {
-
-        //TODO
-        //itemView.getContext().startActivity(new Intent(itemView.getContext(), PostDetailsActivity.class));
+        Intent intent = new Intent(itemView.getContext(), PostDetailsActivity.class);
+        intent.putExtra(INTENT_EXTRA_POST_ID, postId);
+        itemView.getContext().startActivity(intent);
     }
 }
 
