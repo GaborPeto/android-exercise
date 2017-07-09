@@ -1,5 +1,6 @@
 package com.gaborpeto.androidexercise.api.smoketests;
 
+import com.gaborpeto.androidexercise.api.client.ApiClientFactory;
 import com.gaborpeto.androidexercise.api.gateway.RemoteCommentGateway;
 import com.gaborpeto.androidexercise.api.mapper.RemoteCommentMapper;
 import com.gaborpeto.androidexercise.domain.model.Comment;
@@ -11,7 +12,7 @@ import java.util.List;
 
 import io.reactivex.observers.TestObserver;
 
-public class CommentSmokeTests extends BaseSmokeTest {
+public class CommentSmokeTests {
 
     private static final int POST_ID = 1;
 
@@ -19,7 +20,7 @@ public class CommentSmokeTests extends BaseSmokeTest {
 
     @Before
     public void setup() {
-        gateway = new RemoteCommentGateway(getApiClient(), new RemoteCommentMapper());
+        gateway = new RemoteCommentGateway(new ApiClientFactory().create(), new RemoteCommentMapper());
     }
 
     @Test

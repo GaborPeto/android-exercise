@@ -14,9 +14,9 @@ compileJava {
 dependencies {
 
     implementation project(':domain')
-    api rootProject.ext.libraries.retrofit
-    api rootProject.ext.libraries.retrofitGsonConverter
-    api rootProject.ext.libraries.retrofitRxJavaAdapter
+    implementation rootProject.ext.libraries.retrofit
+    implementation rootProject.ext.libraries.retrofitGsonConverter
+    implementation rootProject.ext.libraries.retrofitRxJavaAdapter
 
     testImplementation rootProject.ext.testLibraries.junit
     testImplementation rootProject.ext.testLibraries.mockito

@@ -1,5 +1,6 @@
 package com.gaborpeto.androidexercise.api.smoketests;
 
+import com.gaborpeto.androidexercise.api.client.ApiClientFactory;
 import com.gaborpeto.androidexercise.api.gateway.RemotePostGateway;
 import com.gaborpeto.androidexercise.api.mapper.RemotePostMapper;
 import com.gaborpeto.androidexercise.domain.model.Post;
@@ -10,7 +11,7 @@ import org.junit.Test;
 import java.util.List;
 import io.reactivex.observers.TestObserver;
 
-public class PostSmokeTests extends BaseSmokeTest {
+public class PostSmokeTests {
 
     private static final int POST_ID = 1;
 
@@ -18,7 +19,7 @@ public class PostSmokeTests extends BaseSmokeTest {
 
     @Before
     public void setup() {
-        gateway = new RemotePostGateway(getApiClient(), new RemotePostMapper());
+        gateway = new RemotePostGateway(new ApiClientFactory().create(), new RemotePostMapper());
     }
 
     @Test
