@@ -1,2 +1,38 @@
-# android-exercise
-Create a small app to display in a list the posts from here: https://jsonplaceholder.typicode.com/. When tapping on a post, the post should be displayed in detail in a separate screen, along with all the corresponding comments.   The use of any third-party library is allowed and encouraged.  Please make sure the app works well in both portrait landscape.  We would like to see some clean and testable code, as well as a good coverage by automated tests. Don’t focus too much on UI, it is not the point of this exercise.   Preferred way of submitting the solution is a GIT repository.   Bonus: The app should function offline (offer some type of persistence).
+# Android Exercise
+
+A demo app displaying a list of posts and corresponding comments on separate screens.
+(Not much effort is spent on the UI as it is not the point of this demo.)
+
+### The app demonstrates
+
+* Modular Domain Driven Design
+* Unit testing with JUnit4 and Mockito
+* MVP Architecture
+* Dependency Injection with Dagger 2
+* UI Testing with Espresso
+* Persistence with Realm
+
+## Third Party Libraries
+
+* **[RxJava2](https://github.com/ReactiveX/RxJava)**
+* **[Retrofit2](http://square.github.io/retrofit/)**
+* **[Dagger2](https://google.github.io/dagger/)**
+* **[Realm](https://realm.io/docs/java/latest/)**
+
+## Author
+
+* **[GaborPeto](https://github.com/GaborPeto)**
+
+## License
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
