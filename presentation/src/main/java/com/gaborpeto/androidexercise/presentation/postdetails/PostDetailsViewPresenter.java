@@ -4,7 +4,6 @@ import com.gaborpeto.androidexercise.domain.interactor.comment.IGetCommentsInter
 import com.gaborpeto.androidexercise.domain.interactor.post.IGetPostInteractor;
 import com.gaborpeto.androidexercise.domain.model.Comment;
 import com.gaborpeto.androidexercise.domain.model.Post;
-import com.gaborpeto.androidexercise.presentation.Presenter;
 import com.gaborpeto.androidexercise.presentation.util.IScheduler;
 
 import java.util.List;
@@ -14,12 +13,13 @@ import javax.inject.Inject;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.subscribers.DisposableSubscriber;
 
-public class PostDetailsViewPresenter extends Presenter<PostDetailsViewModel> {
+public class PostDetailsViewPresenter implements IPostDetailsViewPresenter {
 
     private IGetPostInteractor getPostInteractor;
     private IGetCommentsInteractor getCommentsInteractor;
     private IScheduler scheduler;
     private int postId;
+    private PostDetailsViewModel viewModel;
 
     CompositeDisposable subscriptions;
 
@@ -30,6 +30,11 @@ public class PostDetailsViewPresenter extends Presenter<PostDetailsViewModel> {
         this.getCommentsInteractor = getCommentsInteractor;
         this.scheduler = scheduler;
         this.subscriptions = new CompositeDisposable();
+    }
+
+    @Override
+    public void setViewModel(PostDetailsViewModel viewModel) {
+        this.viewModel = viewModel;
     }
 
     @Override
@@ -44,6 +49,7 @@ public class PostDetailsViewPresenter extends Presenter<PostDetailsViewModel> {
         unsubscribe();
     }
 
+    @Override
     public void setPostId(int postId) {
         this.postId = postId;
     }

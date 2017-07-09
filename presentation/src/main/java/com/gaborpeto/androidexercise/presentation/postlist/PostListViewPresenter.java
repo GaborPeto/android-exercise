@@ -2,7 +2,6 @@ package com.gaborpeto.androidexercise.presentation.postlist;
 
 import com.gaborpeto.androidexercise.domain.interactor.post.IGetPostsInteractor;
 import com.gaborpeto.androidexercise.domain.model.Post;
-import com.gaborpeto.androidexercise.presentation.Presenter;
 import com.gaborpeto.androidexercise.presentation.util.IScheduler;
 
 
@@ -13,16 +12,22 @@ import javax.inject.Inject;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.subscribers.DisposableSubscriber;
 
-public class PostListViewPresenter extends Presenter<PostListViewModel> {
+public class PostListViewPresenter implements IPostListViewPresenter {
 
     private IGetPostsInteractor interactor;
     private IScheduler scheduler;
+    private PostListViewModel viewModel;
 
     Disposable subscription;
 
     @Inject public PostListViewPresenter(IGetPostsInteractor interactor, IScheduler scheduler) {
         this.interactor = interactor;
         this.scheduler = scheduler;
+    }
+
+    @Override
+    public void setViewModel(PostListViewModel viewModel) {
+        this.viewModel = viewModel;
     }
 
     @Override

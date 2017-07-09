@@ -15,8 +15,8 @@ import android.widget.Toast;
 import com.gaborpeto.androidexercise.R;
 import com.gaborpeto.androidexercise.domain.model.Comment;
 import com.gaborpeto.androidexercise.domain.model.Post;
+import com.gaborpeto.androidexercise.presentation.postdetails.IPostDetailsViewPresenter;
 import com.gaborpeto.androidexercise.presentation.postdetails.PostDetailsViewModel;
-import com.gaborpeto.androidexercise.presentation.postdetails.PostDetailsViewPresenter;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ import static com.gaborpeto.androidexercise.util.Constants.*;
 public class PostDetailsFragment extends Fragment implements PostDetailsViewModel {
 
     @Inject
-    PostDetailsViewPresenter presenter;
+    IPostDetailsViewPresenter presenter;
 
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;

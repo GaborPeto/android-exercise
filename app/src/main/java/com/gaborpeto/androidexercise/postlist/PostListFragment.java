@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import com.gaborpeto.androidexercise.R;
 import com.gaborpeto.androidexercise.domain.model.Post;
+import com.gaborpeto.androidexercise.presentation.postlist.IPostListViewPresenter;
 import com.gaborpeto.androidexercise.presentation.postlist.PostListViewModel;
-import com.gaborpeto.androidexercise.presentation.postlist.PostListViewPresenter;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ import static android.view.View.*;
 public class PostListFragment extends Fragment implements PostListViewModel {
 
     @Inject
-    PostListViewPresenter presenter;
+    IPostListViewPresenter presenter;
 
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;

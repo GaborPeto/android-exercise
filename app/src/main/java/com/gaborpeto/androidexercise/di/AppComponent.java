@@ -11,6 +11,7 @@ import dagger.android.AndroidInjectionModule;
 @Component(modules = {
         AndroidInjectionModule.class,
         AppModule.class,
+        PresentationModule.class,
         InteractorModule.class,
         PersistenceModule.class,
         ApiModule.class
