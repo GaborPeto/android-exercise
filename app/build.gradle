@@ -11,7 +11,7 @@ android {
     targetSdkVersion rootProject.ext.compileSdkVersion
     versionCode 1
     versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner 'com.gaborpeto.androidexercise.UITestRunner'
   }
   buildTypes {
     release {
@@ -49,6 +49,10 @@ dependencies {
   androidTestImplementation rootProject.ext.testLibraries.runner
   androidTestImplementation rootProject.ext.testLibraries.rules
   androidTestImplementation rootProject.ext.testLibraries.espresso
+
+  androidTestAnnotationProcessor rootProject.ext.libraries.daggerAnnotationProcessor
+
+  androidTestCompileOnly rootProject.ext.libraries.jsr
 
   testImplementation rootProject.ext.testLibraries.junit
   testImplementation rootProject.ext.testLibraries.mockito

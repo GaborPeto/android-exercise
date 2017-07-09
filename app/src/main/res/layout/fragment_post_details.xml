@@ -19,14 +19,14 @@
         android:padding="@dimen/space">
 
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/post_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/space_small"
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/body"
+            android:id="@+id/post_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

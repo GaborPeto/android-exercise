@@ -37,11 +37,11 @@ public class PostDetailsFragment extends Fragment implements PostDetailsViewMode
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
 
-    @BindView(R.id.title)
-    TextView title;
+    @BindView(R.id.post_title)
+    TextView postTitle;
 
-    @BindView(R.id.body)
-    TextView body;
+    @BindView(R.id.post_body)
+    TextView postBody;
 
     @BindView(R.id.comment_list)
     RecyclerView commentList;
@@ -91,8 +91,8 @@ public class PostDetailsFragment extends Fragment implements PostDetailsViewMode
 
     @Override
     public void setPost(Post post) {
-        title.setText(post.getTitle());
-        body.setText(post.getBody());
+        postTitle.setText(post.getTitle());
+        postBody.setText(post.getBody());
     }
 
     @Override
