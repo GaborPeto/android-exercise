@@ -6,11 +6,11 @@ A demo app displaying a list of posts and corresponding comments on separate scr
 ### The app demonstrates
 
 * Modular Domain Driven Design
-* Unit testing with JUnit4 and Mockito
 * MVP Architecture
-* Dependency Injection with Dagger 2
-* UI Testing with Espresso
 * Persistence with Realm
+* Dependency Injection with Dagger 2
+* Unit testing with JUnit4 and Mockito
+* UI Testing with Espresso
 
 ## Third Party Libraries
 
